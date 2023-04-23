@@ -32,7 +32,7 @@ payload:
 }
 
 ```
-![1682249155883.jpg](https://github.com/ba40431/Taipei-day-trip-website/blob/main/static/pic/demopic/1682249155883.jpg?raw=true)
+![1682249155883.jpg](https://github.com/ba40431/pointService/blob/main/1682249155883.jpg?raw=true)
 ### 用點 API
 PUT /point/:userId
 
@@ -42,4 +42,4 @@ payload:
 	"pointOffset":25
 }
 ```
-![1682249128120.jpg](https://github.com/ba40431/Taipei-day-trip-website/blob/main/static/pic/demopic/1682249128120.jpg?raw=true)
+![1682249128120.jpg](https://github.com/ba40431/pointService/blob/main/1682249128120.jpg?raw=true)

@@ -10,6 +10,7 @@ class TransactionRepository {
       const pointData = await points.findOne({ where: { id: pointId } }, { sqlTransaction });
       const userData = await user.findOne({ where: { id: userId } }, { sqlTransaction });
   
+      if(!pointData || !userData) throw new Error('請再確認會員或點數 id 是否有誤');
       // Check if there are enough points available for the given amount
       if (pointData.total < amount) throw new Error('兌換點數名額已額滿');
   
@@ -51,6 +52,7 @@ class TransactionRepository {
     try {
       // 取得使用者資料
       const userData = await user.findOne({ where: { id: userId } }, { transaction: sqlTransaction });
+      if(!userData) throw new Error('請再確認會員 id 是否有誤');
       if (userData.balance < pointOffset) {
         throw new Error('點數不足');
       }

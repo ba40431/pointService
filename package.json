@@ -18,7 +18,10 @@
   },
   "homepage": "https://github.com/ba40431/pointService#readme",
   "dependencies": {
+    "cls-hooked": "^4.2.2",
+    "dotenv": "^16.0.3",
     "express": "^4.18.2",
+    "fs": "^0.0.1-security",
     "mysql2": "^3.2.3",
     "nodemon": "^2.0.22",
     "sequelize": "^6.31.0",

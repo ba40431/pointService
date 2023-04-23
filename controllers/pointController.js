@@ -15,12 +15,22 @@ class PointController {
     }
   }
 
+  async findOne(req, res, next){
+    try {
+      const result = await pointService.findOne()
+
+      res.send(result)
+    } catch (error) {
+      next(error)
+    }
+  }
+
   /**
    * 給予點數
    */
   async givePoint(req, res, next) {
     try {
-      const result = await pointService.testify()
+      const result = await pointService.givePoint()
 
       res.send(result)
     } catch (error) {
@@ -33,7 +43,7 @@ class PointController {
    */
   async usePoint(req, res, next) {
     try {
-      const result = await pointService.testify()
+      const result = await pointService.usePoint()
 
       res.send(result)
     } catch (error) {

@@ -1,3 +1,5 @@
+const TransactionRepository = require('../repositories/mysql/point/transactionRepository')
+const transactionRepository = new TransactionRepository()
 class PrivatePointService {
   constructor() {
     this.message = 'I am an instance'
@@ -5,6 +7,14 @@ class PrivatePointService {
 
   async testify() {
     return 'testify'
+  }
+
+  async givePoint() {
+    return await transactionRepository.givePoint()
+  }
+
+  async usePoint() {
+    return await transactionRepository.usePoint()
   }
 }
 

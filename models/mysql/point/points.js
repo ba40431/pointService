@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('point', {
+  return sequelize.define('points', {
     id: {
       autoIncrement: true,
       type: DataTypes.INTEGER,
@@ -30,11 +30,12 @@ module.exports = function(sequelize, DataTypes) {
     },
     expire: {
       type: DataTypes.DATE,
-      allowNull: true
+      allowNull: true,
+      comment: "使用期限"
     }
   }, {
     sequelize,
-    tableName: 'point',
+    tableName: 'points',
     timestamps: true,
     indexes: [
       {

@@ -9,15 +9,18 @@ module.exports = function(sequelize, DataTypes) {
     },
     userId: {
       type: DataTypes.INTEGER,
-      allowNull: false
+      allowNull: false,
+      comment: "使用者 id"
     },
     pointId: {
       type: DataTypes.INTEGER,
-      allowNull: false
+      allowNull: false,
+      comment: "點數 id"
     },
-    amout: {
+    amount: {
       type: DataTypes.INTEGER,
-      allowNull: false
+      allowNull: false,
+      comment: "交易點數"
     }
   }, {
     sequelize,

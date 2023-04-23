@@ -1,4 +1,5 @@
-// const path = require('path')
+const path = require('path')
+require('dotenv').config({ path: './config/env/local.env' })
 
 const express = require('express')
 const router = require('./routes')

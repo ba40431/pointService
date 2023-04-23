@@ -30,7 +30,7 @@ class PointController {
    */
   async givePoint(req, res, next) {
     try {
-      const result = await pointService.testify()
+      const result = await pointService.givePoint()
 
       res.send(result)
     } catch (error) {
@@ -43,7 +43,7 @@ class PointController {
    */
   async usePoint(req, res, next) {
     try {
-      const result = await pointService.testify()
+      const result = await pointService.usePoint()
 
       res.send(result)
     } catch (error) {

@@ -9,8 +9,12 @@ class PrivatePointService {
     return 'testify'
   }
 
-  async findOne() {
-    return await transactionRepository.findOne1()
+  async givePoint() {
+    return await transactionRepository.givePoint()
+  }
+
+  async usePoint() {
+    return await transactionRepository.usePoint()
   }
 }
 

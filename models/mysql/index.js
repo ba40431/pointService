@@ -50,10 +50,10 @@ for (let i = 0; i < databases.length; ++i) {
   })
 }
 
-fs.readdirSync(path.join(__dirname))
+fs.readdirSync(path.join(__dirname, '/point'))
   .filter(file => file.indexOf('.') !== 0 && file !== basename && file.slice(-3) === '.js')
   .forEach(file => {
-    const model = require(path.join(__dirname))(db.point, Sequelize.DataTypes)
+    const model = require(path.join(__dirname, '/point', file))(db.point, Sequelize.DataTypes)
     db[model.name] = model
   })
 

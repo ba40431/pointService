@@ -1,50 +1,44 @@
-const Sequelize = require('sequelize');
-module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('point', {
-    id: {
-      autoIncrement: true,
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      primaryKey: true,
-      comment: "點數 id"
-    },
-    name: {
-      type: DataTypes.STRING(50),
-      allowNull: false,
-      comment: "點數名稱"
-    },
-    type: {
-      type: DataTypes.STRING(50),
-      allowNull: true,
-      comment: "點數類型"
-    },
-    value: {
-      type: DataTypes.STRING(50),
-      allowNull: true,
-      comment: "點數價值"
-    },
-    total: {
-      type: DataTypes.INTEGER,
-      allowNull: true,
-      comment: "點數數量"
-    },
-    expire: {
-      type: DataTypes.DATE,
-      allowNull: true
+'use strict'
+const { Model } = require('sequelize')
+
+module.exports = (sequelize, DataTypes) => {
+  class point extends Model {
+    static associate(models) {
+      // define association
     }
-  }, {
-    sequelize,
-    tableName: 'point',
-    timestamps: true,
-    indexes: [
-      {
-        name: "PRIMARY",
-        unique: true,
-        using: "BTREE",
-        fields: [
-          { name: "id" },
-        ]
+  }
+  point.init(
+    {
+      id: {
+        autoIncrement: true,
+        type: DataTypes.INTEGER.UNSIGNED,
+        allowNull: false,
+        primaryKey: true
       },
-    ]
-  });
-};
+      type: {
+        type: DataTypes.STRING(50),
+        allowNull: false,
+        defaultValue: ''
+      },
+      message: {
+        type: DataTypes.STRING(255),
+        allowNull: true
+      }
+    },
+    {
+      sequelize,
+      modelName: 'point',
+      freezeTableName: true,
+      timestamps: false,
+      indexes: [
+        {
+          name: 'PRIMARY',
+          unique: true,
+          using: 'BTREE',
+          fields: [{ name: 'id' }]
+        }
+      ]
+    }
+  )
+  return point
+}

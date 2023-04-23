@@ -1,33 +1,44 @@
-const Sequelize = require('sequelize');
-module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('log', {
-    id: {
-      autoIncrement: true,
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      primaryKey: true
-    },
-    type: {
-      type: DataTypes.STRING(50),
-      allowNull: false
-    },
-    message: {
-      type: DataTypes.STRING(225),
-      allowNull: true
+'use strict'
+const { Model } = require('sequelize')
+
+module.exports = (sequelize, DataTypes) => {
+  class log extends Model {
+    static associate(models) {
+      // define association
     }
-  }, {
-    sequelize,
-    tableName: 'log',
-    timestamps: true,
-    indexes: [
-      {
-        name: "PRIMARY",
-        unique: true,
-        using: "BTREE",
-        fields: [
-          { name: "id" },
-        ]
+  }
+  log.init(
+    {
+      id: {
+        autoIncrement: true,
+        type: DataTypes.INTEGER.UNSIGNED,
+        allowNull: false,
+        primaryKey: true
       },
-    ]
-  });
-};
+      type: {
+        type: DataTypes.STRING(50),
+        allowNull: false,
+        defaultValue: ''
+      },
+      message: {
+        type: DataTypes.STRING(255),
+        allowNull: true
+      }
+    },
+    {
+      sequelize,
+      modelName: 'log',
+      freezeTableName: true,
+      timestamps: false,
+      indexes: [
+        {
+          name: 'PRIMARY',
+          unique: true,
+          using: 'BTREE',
+          fields: [{ name: 'id' }]
+        }
+      ]
+    }
+  )
+  return log
+}

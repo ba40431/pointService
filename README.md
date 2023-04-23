@@ -22,11 +22,11 @@
 
 
 ### 給點 API
-POST /point/userId
+POST /point/:userId
 
 payload:
 
 ### 用點 API
-PUT /point/userId
+PUT /point/:userId
 
 payload:

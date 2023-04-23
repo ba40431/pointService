@@ -15,16 +15,6 @@ class PointController {
     }
   }
 
-  async findOne(req, res, next){
-    try {
-      const result = await pointService.findOne()
-
-      res.send(result)
-    } catch (error) {
-      next(error)
-    }
-  }
-
   /**
    * 給予點數
    */

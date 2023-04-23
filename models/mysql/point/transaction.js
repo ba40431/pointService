@@ -14,7 +14,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     pointId: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      allowNull: true,
       comment: "點數 id"
     },
     amount: {

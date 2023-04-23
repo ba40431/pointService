@@ -15,22 +15,13 @@ class PointController {
     }
   }
 
-  async findOne(req, res, next){
-    try {
-      const result = await pointService.findOne()
-
-      res.send(result)
-    } catch (error) {
-      next(error)
-    }
-  }
-
   /**
    * 給予點數
    */
   async givePoint(req, res, next) {
     try {
-      const result = await pointService.givePoint()
+      if(!req.params.userId  || !req.body.pointId || !req.body.amount) res.send('請再確認資料')
+      const result = await pointService.givePoint(req.params.userId, req.body.pointId, req.body.amount)
 
       res.send(result)
     } catch (error) {
@@ -43,7 +34,8 @@ class PointController {
    */
   async usePoint(req, res, next) {
     try {
-      const result = await pointService.usePoint()
+      if(!req.params.userId  || !req.body.pointOffset) res.send('請再確認資料')
+      const result = await pointService.usePoint(req.params.userId, req.body.pointOffset)
 
       res.send(result)
     } catch (error) {

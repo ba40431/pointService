@@ -1,23 +1,24 @@
 const Sequelize = require('sequelize');
 module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('log', {
+  return sequelize.define('user', {
     id: {
       autoIncrement: true,
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true
     },
-    type: {
+    name: {
       type: DataTypes.STRING(50),
       allowNull: false
     },
-    message: {
-      type: DataTypes.STRING(225),
-      allowNull: true
+    balance: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+      defaultValue: 0
     }
   }, {
     sequelize,
-    tableName: 'log',
+    tableName: 'user',
     timestamps: true,
     indexes: [
       {

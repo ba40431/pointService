@@ -1,23 +1,30 @@
 const Sequelize = require('sequelize');
 module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('log', {
+  return sequelize.define('transaction', {
     id: {
       autoIncrement: true,
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true
     },
-    type: {
-      type: DataTypes.STRING(50),
-      allowNull: false
+    userId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      comment: "使用者 id"
     },
-    message: {
-      type: DataTypes.STRING(225),
-      allowNull: true
+    pointId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      comment: "點數 id"
+    },
+    amount: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      comment: "交易點數"
     }
   }, {
     sequelize,
-    tableName: 'log',
+    tableName: 'transaction',
     timestamps: true,
     indexes: [
       {
